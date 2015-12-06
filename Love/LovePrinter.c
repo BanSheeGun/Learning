@@ -5,13 +5,10 @@
 
 */
 
-#include<cstdio>
-#include<cstring>
-#include<ctime>
-#include<cstdlib>
-#include<algorithm>
-
-using namespace std;
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+#include<math.h>
 
 char a[100][100000];
 int Total, i;
