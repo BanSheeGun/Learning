@@ -39,5 +39,6 @@ int main() {
     Init();
     for (i = 0; i < Total; ++i)
         PrintString(i);
+    getchar();
     return 0;
 }
