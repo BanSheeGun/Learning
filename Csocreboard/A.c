@@ -17,7 +17,9 @@ struct Student
     struct Student *Next;
 };
 
-
+// the size of Student;
+int size = sizeof(sturct Student);
+struct Student *head;
 
 int main() {
     return 0;
