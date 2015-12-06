@@ -32,6 +32,7 @@ int Init() {
 }
 
 int ReadInit() {
+    // some tips
     printf("If you want to exit,please input 0\n");
     printf("If you want to add a student,please input 1\n");
     printf("Please input the operate number and press the Enter\n");
