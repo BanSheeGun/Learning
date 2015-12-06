@@ -18,9 +18,43 @@ struct Student
 };
 
 // the size of Student;
-int size = sizeof(sturct Student);
+int size = sizeof(struct Student);
+// head will be meaningless and never changed and link the whole line;
 struct Student *head;
+int Order;
+
+int Init() {
+    printf("Welcome to use this program\n");
+    head = (struct Student *) malloc (size);
+    head->Next = NULL;
+    head->Number = 0;
+    return 0;
+}
+
+int ReadInit() {
+    printf("If you want to exit,please input 0\n");
+    printf("If you want to add a student,please input 1\n");
+    printf("Please input the operate number and press the Enter\n");
+    scanf("%d",&Order);
+    return 0;
+}
+
+int add() {
+    return 0;
+}
 
 int main() {
+    Init();
+    ReadInit();
+    while (Order != 0) {
+        ReadInit();
+        switch (Order) {
+            case 1 : add();
+            default : break;
+        }
+    }
+
+    // free the memory
+    free(head);
     return 0;
 }
