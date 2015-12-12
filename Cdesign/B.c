@@ -32,7 +32,7 @@ struct Activity
 struct Student
 {
     char Name[10];
-    int Number;
+    int Number, Sum;
     struct Record *Head;
     struct Student *Next;
 };
@@ -50,17 +50,7 @@ int RecSize = sizeof(struct Record);
 Stu *StuHead;
 Rec *RecHead;
 Act *ActHead;
-int Order;
-
-int Iassign(char a[100]) {
-    freopen(a,"r",stdin);
-    return 0;
-}
-
-int Oassign(char a[100]) {
-    freopen(a,"w",stdout);
-    return 0;
-}
+int Order, TotalAct = 0;
 
 int Faddrec() {
     return 0;
@@ -79,6 +69,21 @@ int addrec() {
 }
 
 int addstu() {
+    char a[10];
+    int n;
+    Stu *p;
+    printf("Please input name : ");
+    scanf("%s",a);
+    printf("Please input number : ");
+    scanf("%d",&n);
+    p = (Stu *) malloc (StuSize);
+    p->Number = n;
+    p->Sum = 0;
+    strcpy(p->Name,a);
+    p->Head = NULL;
+    p->Next = StuHead->Next;
+    StuHead->Next = p;
+    printf("Finish\n");
     return 0;
 }
 
@@ -123,6 +128,24 @@ int ReadInit() {
 }
 
 int EndFree() {
+    while (StuHead->Next != NULL) {
+        Stu *p = StuHead->Next;
+        StuHead->Next = p->Next;
+        free(p);
+    }
+    free(StuHead);
+    while (ActHead->Next != NULL) {
+        Act *p = ActHead->Next;
+        ActHead->Next = p->Next;
+        free(p);
+    }
+    free(ActHead);
+    while (RecHead->Next != NULL) {
+        Rec *p = RecHead->Next;
+        RecHead->Next = p->Next;
+        free(p);
+    }
+    free(RecHead);
     return 0;
 }
 
