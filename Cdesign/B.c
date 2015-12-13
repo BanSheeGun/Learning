@@ -1,4 +1,4 @@
-/*
+`/*
     Author : Gunpowder
     Verison : 2.0
     Date : 2015.12.11
@@ -157,13 +157,13 @@ int main() {
     while (Order != 0) {
         ReadInit();
         switch (Order) {
-            case 1 : addstu();
-            case 2 : addact();
-            case 3 : qstu();
-            case 4 : qact();
-            case 5 : qc();
+            case 1 : addstu(); break;
+            case 2 : addact(); break;
+            case 3 : qstu(); break;
+            case 4 : qact(); break;
+            case 5 : qc(); break;
             case 0 : break;
-            default : printf("Noknown Order\n");
+            default : printf("Unknown Order\n");
         }
     }
 
