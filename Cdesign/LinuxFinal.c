@@ -1,7 +1,7 @@
 /*
     Author : Gunpowder
     Verison : 3.0
-    Date : 2015.12.18
+    Date : 2015.12.21
 
 */
 #include<stdio.h>
@@ -143,6 +143,11 @@ int qstu() {
         k = k->Next;
     }
     putchar('\n');
+    if (k == NULL) {
+        printf("Can't Find!\n");
+        putchar('\n');
+        return 0;
+    }
     printf("Name : %s   Number : %d  Sum : %d\n",k->Name,k->Number,k->Sum);
     printf("Following:\n");
     q = k->Head;
@@ -176,6 +181,11 @@ int qact() {
         p = p->Next;
     }
     putchar('\n');
+    if (p == NULL) {
+        printf("Can't Find!\n");
+        putchar('\n');
+        return 0;
+    }
     printf("%d Name:%s s:%d ps:%s\n",p->Number,p->Name,p->s,p->PS);
     printf("Following:\n");
     q = p->Head;

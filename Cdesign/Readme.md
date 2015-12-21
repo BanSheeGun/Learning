@@ -30,3 +30,10 @@ Finis work about q
 ##v 3.0
 Do some work about file init
 
+##LinuxFinal
+All in Linux is finsh
+
+
+##WindowsFinal
+Coming soon
+
