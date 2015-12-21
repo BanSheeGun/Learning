@@ -4,9 +4,12 @@ This is a program for score board.
 
 It supports some operatings.
 Including
->new student
+>new Student
 
->delete student
+>new Activity
+
+>find data
+
 
 
 ####Student
