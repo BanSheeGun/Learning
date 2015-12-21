@@ -34,9 +34,9 @@ Finis work about q
 Do some work about file init
 
 ##LinuxFinal
-All in Linux is finsh
+All in Linux is finish
 
 
 ##WindowsFinal
-Coming soon
+All  is finish
 

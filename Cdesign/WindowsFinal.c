@@ -58,9 +58,9 @@ int addstu() {
     char a[10];
     int n;
     Stu *p;
-    printf("Please input name : ");
+    printf("请输入姓名 : ");
     scanf("%s",a);
-    printf("Please input number : ");
+    printf("请输入学号 : ");
     scanf("%d",&n);
     p = (Stu *) malloc (StuSize);
     p->Number = n;
@@ -69,7 +69,7 @@ int addstu() {
     p->Head = NULL;
     p->Next = StuHead->Next;
     StuHead->Next = p;
-    printf("Finish\n");
+    printf("录入完成\n");
     getchar();
     getchar();
     return 0;
@@ -84,13 +84,13 @@ int addact() {
     Stu *k;
     int t,n;
     p = (Act *) malloc (ActSize);
-    printf("Please input name : ");
+    printf("请输入活动名 : ");
     scanf("%s",a);
     strcpy(p->Name,a);
-    printf("Please input ps : ");
+    printf("请输入活动备注 : ");
     scanf("%s",a);
     strcpy(p->PS,a);
-    printf("Please input s : ");
+    printf("请输入活动素拓分 : ");
     scanf("%d",&t);
     p->s = t;
     p->Head = NULL;
@@ -98,13 +98,13 @@ int addact() {
     p->Number = TotalAct;
     ActHead->Next = p;
 
-    printf("complete Please input number : ");
+    printf("完成，请输入学生数 : ");
     scanf("%d",&t);
     p->n = t;
     while (t--) {
-        printf("Please input number : ");
+        printf("请输入学号 : ");
         scanf("%d",&n);
-        printf("Please input ps : ");
+        printf("请输入该学生活动备注 : ");
         scanf("%s",a);
         q = (Rec *) malloc (RecSize);
         strcpy(q->PS,a);
@@ -123,7 +123,7 @@ int addact() {
         q->Next = RecHead->Next;
         RecHead->Next = q;
     }
-    printf("Finish\n");
+    printf("录入完成\n");
     getchar();
     getchar();
     return 0;
@@ -134,7 +134,7 @@ int qstu() {
     Stu *k;
     Rec *q;
     Act *p;
-    printf("Please input number : ");
+    printf("请输入学号 : ");
     int n;
     scanf("%d",&n);
     k = StuHead->Next;
@@ -144,16 +144,16 @@ int qstu() {
     }
     putchar('\n');
     if (k == NULL) {
-        printf("Can't Find!\n");
+        printf("未找到！\n");
         putchar('\n');
         return 0;
     }
-    printf("Name : %s   Number : %d  Sum : %d\n",k->Name,k->Number,k->Sum);
-    printf("Following:\n");
+    printf("姓名 : %s   学号 : %d  素拓分 : %d\n",k->Name,k->Number,k->Sum);
+    printf("TA所参加的活动:\n");
     q = k->Head;
     while (q != NULL) {
         p = q->A;
-        printf("%s s:%d  ps:%s",p->Name,p->s,q->PS);
+        printf("%s 素拓分:%d  备注:%s",p->Name,p->s,q->PS);
         putchar('\n');
         q = q->SNext;
     }
@@ -169,10 +169,10 @@ int qact() {
     Act *p;
     p = ActHead->Next;
     while (p != NULL) {
-        printf("Number:%d  %s\n",p->Number,p->Name);
+        printf("活动号:%d  %s\n",p->Number,p->Name);
         p = p->Next;
     }
-    printf("Please input number : ");
+    printf("请输入活动号 : ");
     int n;
     scanf("%d",&n);
     p = ActHead->Next;
@@ -182,16 +182,16 @@ int qact() {
     }
     putchar('\n');
     if (p == NULL) {
-        printf("Can't Find!\n");
+        printf("未找到！\n");
         putchar('\n');
         return 0;
     }
-    printf("%d Name:%s s:%d ps:%s\n",p->Number,p->Name,p->s,p->PS);
-    printf("Following:\n");
+    printf("%d 名称:%s 素拓分:%d 备注:%s\n",p->Number,p->Name,p->s,p->PS);
+    printf("参与人员：\n");
     q = p->Head;
     while (q != NULL) {
         k = q->S;
-        printf("%s  ps:%s",k->Name,q->PS);
+        printf("%s  备注:%s",k->Name,q->PS);
         putchar('\n');
         q = q->ANext;
     }
@@ -206,7 +206,7 @@ int qc() {
     int n;
     k = StuHead->Next;
     while (k != NULL) {
-        printf("Name : %s   Number : %d  Sum : %d\n",k->Name,k->Number,k->Sum);
+        printf("姓名 : %s   学号 : %d  素拓分 : %d\n",k->Name,k->Number,k->Sum);
         k = k->Next;
     }
     getchar();
@@ -215,7 +215,7 @@ int qc() {
 }
 
 int Init() {
-    printf("Welcome to use this program\n");
+    printf("欢迎使用该程序\n");
     putchar('\n');
     StuHead = (Stu *) malloc (StuSize);
     StuHead->Next = NULL;
@@ -228,13 +228,13 @@ int Init() {
 
 int ReadInit() {
     // some tips
-    printf("If you want to exit,please input 0\n");
-    printf("If you want to add a student,please input 1\n");
-    printf("If you want to add a activity,please input 2\n");
-    printf("If you want to find a student,please input 3\n");
-    printf("If you want to find a activity,please input 4\n");
-    printf("If you want to find all students,please input 5\n");
-    printf("Please input the operate number and press the Enter\n");
+    printf("如果你想退出请输入 0\n");
+    printf("如果你想添加学生请输入 1\n");
+    printf("如果你想添加活动请输入 2\n");
+    printf("如果你想查询学生请输入 3\n");
+    printf("如果你想查询活动请输入 4\n");
+    printf("如果你想查询所有学生请输入 5\n");
+    printf("请输入对应数字并按下回车\n");
     scanf("%d",&Order);
     return 0;
 }
@@ -280,15 +280,15 @@ int EndFree() {
         free(p);
     }
     free(RecHead);
-    freopen("/dev/tty","w",stdout);
-    printf("Free Finish\n");
+    freopen("CON","w",stdout);
+    printf("释放结束\n");
     getchar();
     getchar();
     return 0;
 }
 
 int FileInit() {
-    printf("Read From File\n");
+    printf("从文件读入\n");
     freopen("Data.txt","r",stdin);
     freopen("Temp.txt","w",stdout);
     while (~scanf("%d",&Order)) {
@@ -302,9 +302,9 @@ int FileInit() {
             default : break;
         }
     }
-    freopen("/dev/tty","r",stdin);
-    freopen("/dev/tty","w",stdout);
-    printf("Read Finish\n");
+    freopen("CON","r",stdin);
+    freopen("CON","w",stdout);
+    printf("读入结束\n");
 }
 
 int main() {
@@ -322,7 +322,7 @@ int main() {
             case 4 : qact(); break;
             case 5 : qc(); break;
             case 0 : break;
-            default : printf("Unknown Order\n");break;
+            default : printf("错误的输入号\n");break;
         }
     }
 
