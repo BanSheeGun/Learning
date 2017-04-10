@@ -4,21 +4,21 @@ public class InterRectangle {
     private double length, width;
 
     public InterRectangle() {
-        length = 1;
-        width = 1;
+        this.length = 1;
+        this.width = 1;
     }
 
     public InterRectangle(double l, double w) {
-        length = l;
-        width = w;
+        this.length = l;
+        this.width = w;
     }
 
     public double Perimeter() {
-        return (length + width) * 2.0;
+        return (this.length + this.width) * 2.0;
     }
 
     public double Area() {
-        return (length * width);
+        return (this.length * this.width);
     }
 
     public static double TotalPerimeter, TotalArea;

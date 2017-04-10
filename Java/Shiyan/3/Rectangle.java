@@ -1,22 +1,22 @@
 public class Rectangle {
     private double length, width;
 
-    public Rectangle() {
-        length = 1;
-        width = 1;
+    public InterRectangle() {
+        this.length = 1;
+        this.width = 1;
     }
 
-    public Rectangle(double l, double w) {
-        length = l;
-        width = w;
+    public InterRectangle(double l, double w) {
+        this.length = l;
+        this.width = w;
     }
 
     public double Perimeter() {
-        return (length + width) * 2.0;
+        return (this.length + this.width) * 2.0;
     }
 
     public double Area() {
-        return (length * width);
+        return (this.length * this.width);
     }
 
     public static void main (String[] args) {
