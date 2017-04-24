@@ -11,6 +11,10 @@ public class Rectangle {
         this.width = w;
     }
 
+    public double GetLength() {
+        return length;
+    }
+
     public double Perimeter() {
         return (this.length + this.width) * 2.0;
     }
