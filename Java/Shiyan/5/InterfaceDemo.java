@@ -1,6 +1,10 @@
 interface Guard {
-    public void alarm();
+    public void guard();
     public String fangdao = "fang dao 10 nian";
+}
+
+interface Alarm {
+    public void alarm();
 }
 
 abstract class Door {
@@ -8,7 +12,7 @@ abstract class Door {
     abstract public void close();
 }
 
-class AlarmGuardDoor extends Door implements Guard {
+class AlarmGuardDoor extends Door implements Guard, Alarm {
     public void open() {
         System.out.println("Open the door!");
     }
@@ -17,8 +21,12 @@ class AlarmGuardDoor extends Door implements Guard {
         System.out.println("Close the door");
     }
 
-    public void alarm() {
+    public void guard() {
         System.out.println(fangdao);
+    }
+
+    public void alarm() {
+        System.out.println("BAO JING!");
     }
 }
 
@@ -28,5 +36,6 @@ public class InterfaceDemo {
         a.open();
         a.close();
         a.alarm();
+        a.guard();
     }
 }
