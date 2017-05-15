@@ -26,7 +26,7 @@ public class PaintFigure extends JFrame implements ActionListener {
         jMainPanel.setLayout(new GridLayout(3, 3));
 
         this.getContentPane().add(buttons, BorderLayout.NORTH);
-        this.getContentPane().add(buttons, BorderLayout.CENTER);
+        this.getContentPane().add(jMainPanel, BorderLayout.CENTER);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(500, 400);
@@ -52,7 +52,6 @@ public class PaintFigure extends JFrame implements ActionListener {
         }
         if (ae.getActionCommand().equals("ELL")) {
             if (i < 9) {
-        System.out.println("add");
                 jMainPanel.add(new Ellipse());
                 jMainPanel.repaint();
                 jMainPanel.validate();
@@ -96,8 +95,6 @@ class Ellipse extends JPanel {
     int height, width;
 
     public void paintComponent(Graphics g) {
-
-        System.out.println("1");
         height = this.getSize().height;
         width = this.getSize().width;
         g.setColor(Color.yellow);
