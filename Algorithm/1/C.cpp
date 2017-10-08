@@ -12,13 +12,10 @@ int n, ans;
 int main() {
     ans = 0;
     scanf("%d", &n);
-    if (n == 0)
-        ans = 1;
-    else
-        while (n != 0) {
-            n /= 5;
-            ans += n;
-        }
+    while (n != 0) {
+        n /= 5;
+        ans += n;
+    }
     printf("%d\n", ans);
     return 0;
 }
