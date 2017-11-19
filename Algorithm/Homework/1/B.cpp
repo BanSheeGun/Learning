@@ -33,5 +33,11 @@ int main() {
     for (i = 1; i <= a[0]; ++i)
         ans += (a[i] == 0);
     printf("%d\n", ans);
+    ans = 0;
+    while (n != 0) {
+        n /= 5;
+        ans += n;
+    }
+    printf("%d\n", ans);
     return 0;
 }
