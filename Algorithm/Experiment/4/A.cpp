@@ -7,40 +7,32 @@ using namespace std;
 typedef long long ll;
 const ll mod = 1e9 + 7;
 
-int n, v, an, i;
-int x[100];
-int y[100];
-int ans[100];
-int now[100];
+struct X {
+    double w, v;
+};
 
-int dfs(int num, int cv, int c) {
-    if (num == n + 1) {
-        if (c > an) {
-            an = c;
-            for (int i = 1; i <= n; ++i)
-                ans[i] = now[i];
-        }
-        return 0;
-    }
-    now[num] = 0;
-    dfs(num+1, cv, c);
-    if (x[num] + cv <= v) {
-        now[num] = 1;
-        dfs(num+1, cv + x[num], c + y[num]);
-        now[num] = 0;
-    }
-    return 0;
+inline bool cmp(const X & a, const X & b) {
+    return a.v * b.w >= b.v * a.w;
 }
 
+X a[100];
+double ans;
+int n, i;
+double v;   
+
 int main() {
-    scanf("%d%d", &n, &v);
-    an = 0;
-    for (i = 1; i <= n; ++i)
-        scanf("%d%d", &x[i], &y[i]);
-    dfs(1, 0, 0);
-    printf("%d\n", an);
-    for (i = 1; i <= n; ++i)
-        if (ans[i])
-            printf("%d %d\n", x[i], y[i]);
+    scanf("%d%lf", &n, &v);
+    for (i = 1; i <= n; ++i) {
+        scanf("%lf%lf", &a[i].w, &a[i].v);
+    }    
+    sort(a+1, a+1+n, cmp);
+    ans = 0;
+    for (i = 1; i <= n; ++i) {
+        if (v == 0)
+            break;
+        ans += 1.0 * min(v, a[i].w) * a[i].v / a[i].w; 
+        v -= min(v, a[i].w);
+    }
+    printf("%lf\n", ans);
     return 0;
 }
