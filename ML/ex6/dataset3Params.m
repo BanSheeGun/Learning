@@ -23,11 +23,21 @@ sigma = 0.3;
 %        mean(double(predictions ~= yval))
 %
 
-
-
-
-
-
+cc = [0.01 0.03 0.1 0.3 1 3 10 30];
+ss = [0.01 0.03 0.1 0.3 1 3 10 30];
+a = [];
+for i = 1 : 8
+    for j = 1 : 8
+        tc = cc(i);
+        ts = ss(j);
+        model = svmTrain(X, y, tc, @(x1, x2) gaussianKernel(x1, x2, ts)); 
+        predictions = svmPredict(model, Xval);
+        a = [a mean(double(predictions ~= yval))];
+    end;
+end;
+[tmp, t1] = min(a);
+C = cc(floor((t1 + 7) / 8));
+sigma = ss(t1 - floor((t1 - 1) / 8) * 8);
 
 % =========================================================================
 

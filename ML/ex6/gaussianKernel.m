@@ -16,7 +16,10 @@ sim = 0;
 %
 %
 
-
+l = x1 - x2;
+l = l' * l;
+l = -l / 2 / sigma / sigma;
+sim = e ^ l;
 
 
 
